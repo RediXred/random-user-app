@@ -6,8 +6,8 @@ __pycache__/
 
 db.sqlite3
 
-app/users/migrations/__pycache__/
-app/users/migrations/*.pyc
-app/users/migrations/*.pyo
+migrations/__pycache__/
+migrations/*.pyc
+migrations/*.pyo
 
 *.log
