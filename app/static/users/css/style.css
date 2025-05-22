@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  margin: 0;
+  padding: 0 20px;
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #004080;
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: #f1f7ff;
+}
+
+a {
+  color: #004080;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#load-users-form {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#load-users-form input[type="number"] {
+  width: 100px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+#load-users-form button {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+#load-users-form button:hover {
+  background-color: #002850;
+}
+
+.user-photo {
+  border-radius: 50%;
+  border: 2px solid #004080;
+}
+
+header nav a.head-link {
+  color: white !important;
+}
+
+header h1 a.head-link {
+  color: white !important;
+}

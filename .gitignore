@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.vscode/
+
+db.sqlite3
+
+app/users/migrations/__pycache__/
+app/users/migrations/*.pyc
+app/users/migrations/*.pyo
+
+*.log

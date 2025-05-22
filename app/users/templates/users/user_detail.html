@@ -1,0 +1,13 @@
+{% extends "users/base.html" %}
+
+{% block title %}{{ user.first_name }} {{ user.last_name }}{% endblock %}
+
+{% block content %}
+  <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+  <img src="{{ user.picture }}" width="150" />
+  <p><strong>Gender:</strong> {{ user.gender }}</p>
+  <p><strong>Phone:</strong> {{ user.phone }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Location:</strong> {{ user.location }}</p>
+  <p><a href="{% url 'users:user_random' %}">Show random user</a></p>
+{% endblock %}

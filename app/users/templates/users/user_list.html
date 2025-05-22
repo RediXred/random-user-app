@@ -1,0 +1,98 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<h1>Список пользователей</h1>
+
+
+<div id="form-container"></div>
+
+<div id="messages"></div>
+
+<div id="messages"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Пол</th>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Телефон</th>
+      <th>Email</th>
+      <th>Место проживания</th>
+      <th>Фото</th>
+      <th>Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in page_obj %}
+    <tr>
+      <td>{{ user.gender }}</td>
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.location }}</td>
+      <td><img src="{{ user.picture }}" alt="Фото {{ user.first_name }}" width="50"></td>
+      <td><a href="{% url 'users:user_detail' user.id %}">Подробнее</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Назад</a>
+  {% endif %}
+
+  <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Вперед</a>
+  {% endif %}
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("{% url 'users:load_users_form' %}")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("form-container").innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Ошибка при загрузке формы:", error);
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("{% url 'users:load_users_form' %}")
+    .then(response => response.text())
+    .then(html => {
+      const formContainer = document.getElementById("form-container");
+      formContainer.innerHTML = html;
+      const urlParams = new URLSearchParams(window.location.search);
+      const page = urlParams.get("page") || "1";
+      const hiddenPageInput = document.getElementById("current-page");
+      if (hiddenPageInput) {
+        hiddenPageInput.value = page;
+      }
+    })
+    .catch(error => {
+      console.error("Ошибка при загрузке формы:", error);
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("{% url 'users:user_messages' %}")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("messages").innerHTML = data.html;
+    })
+    .catch(error => console.error("Ошибка загрузки сообщений:", error));
+});
+</script>
+
+{% endblock %}

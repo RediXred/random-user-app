@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Random Users App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}" />
+</head>
+<body>
+    <header>
+        <h1><a class="head-link" href="{% url 'users:user_list' %}">Random Users</a></h1>
+        <nav>
+            <ul>
+                <li><a class="head-link" href="{% url 'users:user_list' %}">User list</a></li>
+                <li><a class="head-link" href="{% url 'users:user_random' %}">Random user</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>YADRO. Random Users App</p>
+    </footer>
+</body>
+</html>

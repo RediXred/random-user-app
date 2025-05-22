@@ -1,0 +1,7 @@
+django==4.2
+psycopg2-binary==2.9.9
+requests==2.31.0
+gunicorn==22.0.0
+redis==5.0.1
+django-redis==5.4.0
+python-dotenv==1.0.1

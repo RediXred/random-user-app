@@ -1,0 +1,7 @@
+<form id="load-users-form" method="post" action="{% url 'users:load_users' %}" style="margin-bottom: 20px;">
+  {% csrf_token %}
+  <input type="hidden" name="page" id="current-page" value="">
+  <label for="count">Загрузить пользователей:</label>
+  <input type="number" name="count" id="count" min="1" required>
+  <button type="submit">Загрузить</button>
+</form>
